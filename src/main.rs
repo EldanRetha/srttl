@@ -20,16 +20,19 @@ async fn main() {
     //////////////////////////////////////////////////////////////////////////
     for sub in &mut subs {
         let api = DeepLApi::with(&args.api_key).new();
+        let text = sub.text.clone().replace("\n","");
         let response = api
-            .translate_text(sub.text.clone(), Lang::EN_US)
-            .source_lang(Lang::JA)
+            .translate_text(text, args.output_lang.to_lang())
+            .source_lang(args.input_lang.to_lang())
             .await
             .unwrap();
+        println!("Original Text: {}", sub.text);
         sub.text = String::new();
+        let i = 0;
         for sentence in response.translations {
+            println!("Sentence {}: {}", i, sentence.text,);
             sub.text.push_str(sentence.text.as_str())
         }
-        println!("{}", sub.text);
     }
 
     //////////////////////////////////////////////////////////////////////////
