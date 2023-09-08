@@ -15,6 +15,7 @@ using this tool (and maybe before too).
 
 ## Usage
 
+```
 Translates SRT files using DeepL
 
 Usage: srttl --input-lang <INPUT_LANG> --output-lang <OUTPUT_LANG> --input-file <INPUT_FILE> --output-file <OUTPUT_FILE> --api-key <API_KEY>
@@ -27,6 +28,7 @@ Options:
   -k, --api-key <API_KEY>
   -h, --help                       Print help
   -V, --version                    Print version
+```
 
 ## Examples
 
